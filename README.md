@@ -1,4 +1,4 @@
-# dub-vulture - MySQL Homework: Employee Tracker
+# MySQL Homework: Employee Tracker
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 <br>
 A Content Management System built using node, inquirer, and MySQL. An application for managing a company's employees using node, inquirer, and MySQL.
