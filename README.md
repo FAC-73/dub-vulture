@@ -1,9 +1,10 @@
 # dub-vulture
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+A Content Management System built using node, inquirer, and MySQL. An application for managing a company's employees using node, inquirer, and MySQL.
 <br />
 
-A Content Management System built using node, inquirer, and MySQL. An application for managing a company's employees using node, inquirer, and MySQL.
-
+![Employee tracker app](https://github.com/FAC-73/dub-vulture/blob/main/assets/screenRecord.png?raw=true)
+Watch the [video](https://github.com/FAC-73/dub-vulture/raw/main/assets/application_video.mov)
+<br />
 
 ## Table of Contents
 - [Description](#description)
@@ -13,7 +14,7 @@ A Content Management System built using node, inquirer, and MySQL. An applicatio
 - [Contributing](#contributing)
 - [Questions](#questions)
 
-![Employee tracker app](https://github.com/FAC-73/dub-vulture/blob/main/Assets/Demo.png?raw=true)
+
 <br />
 
 ## User Story
@@ -26,7 +27,7 @@ So that I can organize and plan my business
   
 ## Description
 
-A CMS that allows a manager to add departments, job roles and new employees. As well as view departments, roles, employees it is also possible to update employee roles. Bonus functionality includes the ability to update employee managers, view employees by manager and delete employees. <br><br>
+A CMS that allows a manager to add departments, job roles and new employees. As well as view departments, roles, employees it is also possible to update employee roles. Bonus functionality includes the ability to update employee managers, view employees by manager and delete employees. <br>
 
 This application utilizes inquirer for prompting the user input, mySQL for creating the schema, organizing and joining data. As well as console.table for formatting the table in terminal/bash. 
 
@@ -38,40 +39,22 @@ git clone https://github.com/FAC-73/dub-vulture.git
 ```
 Navigate to the dub-vulture folder directory using the command prompt.
 
-Run `npm install` to install all dependencies. To use the application locally, run `node server.js` in terminal or bash, and then open http://localhost:3306 [or whatever terminal port you have specified] in your preferred browser. 
+Run `npm install` to install all dependencies. in terminal or bash, and then open http://localhost:3306 [or whatever terminal port you have specified] in your preferred browser. 
+
+Run `npm start` to run the application in terminal or bash 
 
 ## Usage
 
-![Employee tracker app](https://github.com/FAC-73/dub-vulture/blob/main/Assets/Screenshot-of-app.png?raw=true)
+![Employee tracker app](https://github.com/FAC-73/dub-vulture/blob/main/assets/screenRecord.png?raw=true)
 <br />
-1. Click the `get started` button to navigate to the `/notes' route
+1. Appplication run from server.js
 <br />
 
 ![Create note](https://github.com/FAC-73/dub-vulture/blob/main/Assets/Create-new.png?raw=true)
 <br />
 
-2. In the notes page add text into the *Note title* and *Note text* fields
+2. Data for application pulled from employees database schema, stored in employees.sql and data from seeds.sql
 <br />
-
-![Save note](https://github.com/FAC-73/dub-vulture/blob/main/Assets/Save-note.png?raw=true)
-<br />
-
-3. Once both inputs have been filled out a *save button* should appear in the top right corner
-4. Click save to save the note
-5. The saved note is appended to the list on the left
-<br />
-
-![Edit note](https://github.com/FAC-73/dub-vulture/blob/main/Assets/Edit-item.png?raw=true)
-<br />
-
-6. To edit a note click on any of the items in the list and edit the input text, click save to save changes
-<br />
-
-![Delete note](https://github.com/FAC-73/dub-vulture/blob/main/Assets/Delete-item.png?raw=true)
-<br />
-
-7. To delete, use the delete button on each list item.
-
 
 ## Licence
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -86,6 +69,7 @@ Run `npm install` to install all dependencies. To use the application locally, r
 - [Node.js](https://nodejs.org/en/)
 - [Inquirer](https://www.npmjs.com/package/inquirer/v/0.2.3)
 - [Console.table](https://www.npmjs.com/package/console.table)
+- [mySQL](https://www.mysql.com/)
 - [JSON](https://www.json.org/json-en.html)
 
 ## Questions?

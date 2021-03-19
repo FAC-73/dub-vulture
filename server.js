@@ -213,7 +213,7 @@ function showAllRoles() {
 
 // run function addEmployee
 async function addEmployee() {
-    
+
     // async promise awaits inquirer prompt array stored in askName function 
     const addname = await inquirer.prompt(askName());
 
@@ -289,64 +289,64 @@ async function addEmployee() {
 // run function addDepartment
 const addDepartment = () => {
     inquirer
-    .prompt([
-      {
-        name: 'name',
-        type: 'input',
-        message: "Add a name for the new department",
-      }
-    ])
-    .then((answer) => {
-      connection.query(
-        'INSERT INTO department SET ?',
-        {
-          name: answer.name
-        },
-        (err) => {
-          if (err) throw err;
-          console.log('Successfully added new department');
-          prompt();
-        }
-      );
-    });
+        .prompt([
+            {
+                name: 'name',
+                type: 'input',
+                message: "Add a name for the new department",
+            }
+        ])
+        .then((answer) => {
+            connection.query(
+                'INSERT INTO department SET ?',
+                {
+                    name: answer.name
+                },
+                (err) => {
+                    if (err) throw err;
+                    console.log('Successfully added new department');
+                    prompt();
+                }
+            );
+        });
 };
 
 // run function addRole
 const addRole = () => {
     inquirer
-    .prompt([
-      {
-        name: 'title',
-        type: 'input',
-        message: "Title of the new role?",
-      },
-      {
-        name: 'salary',
-        type: 'input',
-        message: "Salary for the new role?",
-      },
-      {
-        name: 'department_id',
-        type: 'input',
-        message: "id of the department for this role?",
-      },
+        .prompt([
+            {
+                name: 'title',
+                type: 'input',
+                message: "Title of the new role?",
+            },
+            {
+                name: 'salary',
+                type: 'input',
+                message: "Salary for the new role?",
+            },
+            {
+                name: 'department_id',
+                type: 'input',
+                message: "id of the department for this role?",
+            },
 
-    ])
-    .then((answer) => {
-      connection.query(
-        'INSERT INTO role SET ?',
-        {
-          title: answer.title,
-          salary: answer.salary,
-          department_id: answer.department_id
-        },
-        (err) => {
-          if (err) throw err;
-          console.log('The new role was successfully added.');
-          action();
-        }
-      );
-    });
+        ])
+        .then((answer) => {
+            connection.query(
+                'INSERT INTO role SET ?',
+                {
+                    title: answer.title,
+                    salary: answer.salary,
+                    department_id: answer.department_id
+                },
+                (err) => {
+                    if (err) throw err;
+                    console.log('The new role was successfully added.');
+                    action();
+                }
+            );
+        });
 };
 
 
@@ -367,7 +367,7 @@ function remove(input) {
             choices: [promptQ.yes, promptQ.no]
         }
 
-    // if yes run remove employee function, else run show all employees function
+        // if yes run remove employee function, else run show all employees function
     ]).then(answer => {
         if (input === 'delete' && answer.action === "yes") removeEmployee();
         else if (input === 'role' && answer.action === "yes") updateRole();
