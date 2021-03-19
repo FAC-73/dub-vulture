@@ -11,7 +11,11 @@ const promptMessages = {
     showByDepartment: "Show All Employee's By Department",
     showByManager: "Show All Employee's By Manager",
     addEmployee: "Add a New Employee",
+    addDepartment: "Add a New Department",
+    addRole: "Add a New Role",
     removeEmployee: "Remove Employee",
+    removeRole: "Remove Role",
+    removeDepartment: "Remove Department",
     updateRole: "Update an Employee's Role",
     updateEmployeeManager: "Update Employee's Manager",
     showAllRoles: "Show All Roles",
@@ -50,7 +54,11 @@ function prompt() {
                 promptMessages.showByManager,
                 promptMessages.showAllRoles,
                 promptMessages.addEmployee,
+                promptMessages.addDepartment,
+                promptMessages.addRole,
                 promptMessages.removeEmployee,
+                promptMessages.removeDepartment,
+                promptMessages.removeRole,
                 promptMessages.updateRole,
                 promptMessages.exit
             ]
@@ -76,9 +84,24 @@ function prompt() {
                     showByManager();
                     break;
 
+                // Runs show all roles function
+                case promptMessages.showAllRoles:
+                    showAllRoles();
+                    break;
+
                 // Runs add employee function
                 case promptMessages.addEmployee:
                     addEmployee();
+                    break;
+
+                // Runs add employee function
+                case promptMessages.addDepartment:
+                    addDepartment();
+                    break;
+
+                // Runs add employee function
+                case promptMessages.addRole:
+                    addDepartment();
                     break;
 
                 // Runs remove employee function
@@ -86,14 +109,19 @@ function prompt() {
                     remove('delete');
                     break;
 
+                // Runs remove employee function
+                case promptMessages.removeDepartment:
+                    remove('delete');
+                    break;
+
+                // Runs remove employee function
+                case promptMessages.removeRole:
+                    remove('delete');
+                    break;
+
                 // Runs update role function
                 case promptMessages.updateRole:
                     remove('role');
-                    break;
-
-                // Runs show all roles function
-                case promptMessages.showAllRoles:
-                    showAllRoles();
                     break;
 
                 // Exits application
@@ -207,6 +235,8 @@ async function addEmployee() {
                 continue;
             }
         }
+
+        // async promise awaits values from manager id and manager name from database maps as choice list
         connection.query('SELECT * FROM employee', async (err, res) => {
             if (err) throw err;
             let choices = res.map(res => `${res.first_name} ${res.last_name}`);
@@ -235,6 +265,8 @@ async function addEmployee() {
                     }
                 }
             }
+
+            // inserts into employee database
             console.log('Employee has been added to the database. Show all employees to see the updated list');
             connection.query(
                 'INSERT INTO employee SET ?',
@@ -253,11 +285,39 @@ async function addEmployee() {
     });
 
 }
+
+// run function addEmployee
+async function addDepartment() {
+    const answer = await inquirer.prompt([
+        {
+            name: "first",
+            type: "input",
+            message: "Enter the name for the department you would like to add: "
+        }
+    ]);
+
+    // deletes employee from employee where id matches response
+    connection.query("INSERT INTO department name",
+        {
+            id: answer.first
+        },
+        function (err) {
+            if (err) throw err;
+        }
+    )
+    // confirms employee was removed
+    console.log('Department has been successfully added to the database');
+    prompt();
+}
+
+// remove employee
 function remove(input) {
     const promptQ = {
         yes: "yes",
         no: "no, return to show all employees"
     };
+
+    // prompt to delete employee based on their known id
     inquirer.prompt([
         {
             name: "action",
@@ -266,6 +326,8 @@ function remove(input) {
                 " the employee ID. Do you know the employee ID?",
             choices: [promptQ.yes, promptQ.no]
         }
+
+    // if yes run remove employee function, else run show all employees function
     ]).then(answer => {
         if (input === 'delete' && answer.action === "yes") removeEmployee();
         else if (input === 'role' && answer.action === "yes") updateRole();
@@ -273,8 +335,8 @@ function remove(input) {
     });
 };
 
+// async promise awaits input value from prompt
 async function removeEmployee() {
-
     const answer = await inquirer.prompt([
         {
             name: "first",
@@ -283,6 +345,7 @@ async function removeEmployee() {
         }
     ]);
 
+    // deletes employee from employee where id matches response
     connection.query('DELETE FROM employee WHERE ?',
         {
             id: answer.first
@@ -291,10 +354,13 @@ async function removeEmployee() {
             if (err) throw err;
         }
     )
+    // confirms employee was removed
     console.log('Employee has been successfully removed from the database');
     prompt();
 
 };
+
+// runs function to prompt for ID
 function askId() {
     return ([
         {
@@ -305,10 +371,12 @@ function askId() {
     ]);
 }
 
-
+// async promise awaits input value from askId function prompt array
 async function updateRole() {
     const employeeId = await inquirer.prompt(askId());
 
+
+    // async promise awaits list of roles from role column and maps to choice list
     connection.query('SELECT role.id, role.title FROM role ORDER BY role.id;', async (err, res) => {
         if (err) throw err;
         const { role } = await inquirer.prompt([
@@ -326,6 +394,7 @@ async function updateRole() {
                 continue;
             }
         }
+        // updates employee role based on selected item in choice list
         connection.query(`UPDATE employee 
         SET role_id = ${roleId}
         WHERE employee.id = ${employeeId.name}`, async (err, res) => {
@@ -336,6 +405,7 @@ async function updateRole() {
     });
 }
 
+// function includes object arrays for first and last name prompt
 function askName() {
     return ([
         {
