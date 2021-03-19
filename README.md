@@ -1,4 +1,6 @@
-# dub-vulture
+# dub-vulture - MySQL Homework: Employee Tracker
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<br>
 A Content Management System built using node, inquirer, and MySQL. An application for managing a company's employees using node, inquirer, and MySQL.
 <br />
 
@@ -14,8 +16,6 @@ Watch the [video](https://github.com/FAC-73/dub-vulture/raw/main/assets/applicat
 - [Contributing](#contributing)
 - [Questions](#questions)
 
-
-<br />
 
 ## User Story
 
@@ -50,7 +50,7 @@ Run `npm start` to run the application in terminal or bash
 1. Appplication run from server.js
 <br />
 
-![Create note](https://github.com/FAC-73/dub-vulture/blob/main/Assets/Create-new.png?raw=true)
+![schema](https://github.com/FAC-73/dub-vulture/blob/main/assets/database.png?raw=true)
 <br />
 
 2. Data for application pulled from employees database schema, stored in employees.sql and data from seeds.sql
