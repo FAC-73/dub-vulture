@@ -13,7 +13,7 @@ A Content Management System built using node, inquirer, and MySQL. An applicatio
 - [Contributing](#contributing)
 - [Questions](#questions)
 
-![Employee Tracker App](https://github.com/FAC-73/dub-vulture/blob/main/Assets/Demo.png?raw=true)
+![Employee tracker app](https://github.com/FAC-73/dub-vulture/blob/main/Assets/Demo.png?raw=true)
 <br />
 
 ## User Story
@@ -23,38 +23,12 @@ AS A small business owner
 I want to be able to view and manage the departments, roles, and employees in my company
 So that I can organize and plan my business
 ```
-
-## Minimum Requirements
-
-* Functional application.
-
-* GitHub repository with a unique name and a README describing the project.
-
-* The command-line application should allow users to:
-
-  * Add departments, roles, employees
-
-  * View departments, roles, employees
-
-  * Update employee roles
-
-
-## Bonus
-
-* The command-line application should allow users to:
-
-  * Update employee managers
-
-  * View employees by manager
-
-  * Delete departments, roles, and employees
-
-  * View the total utilized budget of a department -- ie the combined salaries of all employees in that department
   
-
 ## Description
 
-A CMS that allows a manager to add departments, roles, employees, view departments, roles, employees as well as update them. Bonus functionality includes the ability to update employee managers, view employees by manager and delete department, roles and employees. You can also view the total budget of a department through a function that combines all salaries of employess in that department. This application utilizes inquirer for prompting the user input, mySQL for creating the schema, organizing and joining data. As well as console.table for formatting the table in terminal/bash. 
+A CMS that allows a manager to add departments, job roles and new employees. As well as view departments, roles, employees it is also possible to update employee roles. Bonus functionality includes the ability to update employee managers, view employees by manager and delete employees. <br><br>
+
+This application utilizes inquirer for prompting the user input, mySQL for creating the schema, organizing and joining data. As well as console.table for formatting the table in terminal/bash. 
 
 ## Installation
 Clone the repo to your local development environment.
@@ -64,12 +38,11 @@ git clone https://github.com/FAC-73/dub-vulture.git
 ```
 Navigate to the dub-vulture folder directory using the command prompt.
 
-Run `npm install` to install all dependencies. To use the application locally, run `node server.js` in terminal or bash, and then open http://localhost:3000 [or whatever terminal port you have specified] in your preferred browser. 
+Run `npm install` to install all dependencies. To use the application locally, run `node server.js` in terminal or bash, and then open http://localhost:3306 [or whatever terminal port you have specified] in your preferred browser. 
 
 ## Usage
-Launch the [app ](https://pure-stream-99195.herokuapp.com/)
 
-![Note taker app with express.js](https://github.com/FAC-73/dub-vulture/blob/main/Assets/Screenshot-of-app.png?raw=true)
+![Employee tracker app](https://github.com/FAC-73/dub-vulture/blob/main/Assets/Screenshot-of-app.png?raw=true)
 <br />
 1. Click the `get started` button to navigate to the `/notes' route
 <br />
@@ -125,6 +98,3 @@ Launch the [app ](https://pure-stream-99195.herokuapp.com/)
 
 ### 📁 GitHub project repo:
 [https://github.com/FAC-73/dub-vulture](https://github.com/FAC-73/dub-vulture)
-
-### 🔗 Deployed application:
-[https://pure-stream-99195.herokuapp.com/](https://pure-stream-99195.herokuapp.com/)

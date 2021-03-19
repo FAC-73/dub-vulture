@@ -101,7 +101,7 @@ function prompt() {
 
                 // Runs add employee function
                 case promptMessages.addRole:
-                    addDepartment();
+                    addRole();
                     break;
 
                 // Runs remove employee function
@@ -286,29 +286,69 @@ async function addEmployee() {
 
 }
 
-// run function addEmployee
-async function addDepartment() {
-    const answer = await inquirer.prompt([
+// run function addDepartment
+const addDepartment = () => {
+    inquirer
+    .prompt([
+      {
+        name: 'name',
+        type: 'input',
+        message: "Add a name for the new department",
+      }
+    ])
+    .then((answer) => {
+      connection.query(
+        'INSERT INTO department SET ?',
         {
-            name: "first",
-            type: "input",
-            message: "Enter the name for the department you would like to add: "
-        }
-    ]);
-
-    // deletes employee from employee where id matches response
-    connection.query("INSERT INTO department name",
-        {
-            id: answer.first
+          name: answer.name
         },
-        function (err) {
-            if (err) throw err;
+        (err) => {
+          if (err) throw err;
+          console.log('Successfully added new department');
+          prompt();
         }
-    )
-    // confirms employee was removed
-    console.log('Department has been successfully added to the database');
-    prompt();
-}
+      );
+    });
+};
+
+// run function addRole
+const addRole = () => {
+    inquirer
+    .prompt([
+      {
+        name: 'title',
+        type: 'input',
+        message: "Title of the new role?",
+      },
+      {
+        name: 'salary',
+        type: 'input',
+        message: "Salary for the new role?",
+      },
+      {
+        name: 'department_id',
+        type: 'input',
+        message: "id of the department for this role?",
+      },
+
+    ])
+    .then((answer) => {
+      connection.query(
+        'INSERT INTO role SET ?',
+        {
+          title: answer.title,
+          salary: answer.salary,
+          department_id: answer.department_id
+        },
+        (err) => {
+          if (err) throw err;
+          console.log('The new role was successfully added.');
+          action();
+        }
+      );
+    });
+};
+
 
 // remove employee
 function remove(input) {
